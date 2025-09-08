@@ -3,18 +3,7 @@
 [![Python](https://img.shields.io/badge/python-3.13-blue.svg)](https://www.python.org/downloads/)
 [![Pylint](https://img.shields.io/badge/pylint-green.svg)](https://pylint.pycqa.org/)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
-[![deploy-prod](https://github.com/infodation/ifd-cpb-python-ai/actions/workflows/ci-prod.yaml/badge.svg)](https://github.com/infodation/ifd-cpb-python-ai/actions/workflows/ci-prod.yaml)
-[![deploy-dev](https://github.com/infodation/ifd-cpb-python-ai/actions/workflows/ci-dev.yaml/badge.svg)](https://github.com/infodation/ifd-cpb-python-ai/actions/workflows/ci-dev.yaml)
-[![docling-module](https://github.com/infodation/ifd-cpb-python-ai/actions/workflows/ci-docling.yaml/badge.svg)](https://github.com/infodation/ifd-cpb-python-ai/actions/workflows/ci-docling.yaml)
-[![Quality Gate Status](https://sonarqube.infodation.com/api/project_badges/measure?project=infodation_ifd-cpb-python-ai_a72a641c-5c37-4147-a253-be4621209bc3&metric=alert_status&token=sqb_a825a982a67d14b705126506846cb0aa28f907d5)](https://sonarqube.infodation.com/dashboard?id=infodation_ifd-cpb-python-ai_a72a641c-5c37-4147-a253-be4621209bc3)
-[![Coverage](https://sonarqube.infodation.com/api/project_badges/measure?project=infodation_ifd-cpb-python-ai_a72a641c-5c37-4147-a253-be4621209bc3&metric=coverage&token=sqb_a825a982a67d14b705126506846cb0aa28f907d5)](https://sonarqube.infodation.com/dashboard?id=infodation_ifd-cpb-python-ai_a72a641c-5c37-4147-a253-be4621209bc3)
-[![Lines of Code](https://sonarqube.infodation.com/api/project_badges/measure?project=infodation_ifd-cpb-python-ai_a72a641c-5c37-4147-a253-be4621209bc3&metric=ncloc&token=sqb_a825a982a67d14b705126506846cb0aa28f907d5)](https://sonarqube.infodation.com/dashboard?id=infodation_ifd-cpb-python-ai_a72a641c-5c37-4147-a253-be4621209bc3)
-[![Duplicated Lines (%)](https://sonarqube.infodation.com/api/project_badges/measure?project=infodation_ifd-cpb-python-ai_a72a641c-5c37-4147-a253-be4621209bc3&metric=duplicated_lines_density&token=sqb_a825a982a67d14b705126506846cb0aa28f907d5)](https://sonarqube.infodation.com/dashboard?id=infodation_ifd-cpb-python-ai_a72a641c-5c37-4147-a253-be4621209bc3)
-[![.github/workflows/ci-garak.yaml](https://github.com/infodation/ifd-cpb-python-ai/actions/workflows/ci-garak.yaml/badge.svg)](https://github.com/infodation/ifd-cpb-python-ai/actions/workflows/ci-garak.yaml)
-
 A **FastAPI application** designed for seamless **AI-Teams app integration projects**.
-
-**Reference**: [IFDINTS-377](https://infodation.atlassian.net/browse/IFDINTS-377)
 
 ---
 
@@ -50,8 +39,6 @@ Follow the steps below to install and run the application:
 Use the following command to clone this repository:
 
 ```bash
-
-git  clone  https://github.com/infodation/ifd-cpb-python-ai.git
 
 cd  ifd-cpb-python-ai
 
