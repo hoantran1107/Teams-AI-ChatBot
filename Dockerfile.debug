@@ -1,0 +1,42 @@
+FROM python:3.13-slim AS base
+
+WORKDIR /app
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    libmagic1 \
+    libreoffice \
+    pandoc &&\
+    rm -rf /var/lib/apt/lists/*
+
+FROM base AS builder
+ENV PATH="/usr/local/bin:$PATH"
+ENV PYTHONPATH="/app:"
+# Copy uv from the official image
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/uv
+
+# Enable bytecode compilation and copy mode
+ENV UV_COMPILE_BYTECODE=1
+ENV UV_LINK_MODE=copy
+
+# First copy only dependency files for better layer caching
+COPY pyproject.toml uv.lock ./
+
+# Install project dependencies and debugpy for debugging (includes dev dependencies)
+RUN uv sync --frozen && uv pip install --system debugpy
+
+# Copy specific files and directories instead of everything
+COPY main.py ./
+COPY src/ ./src/
+COPY .env ./
+COPY src/prompts ./src/prompts/
+
+# Expose the port that the FastAPI app runs on
+EXPOSE 5000
+# Expose debugpy port
+EXPOSE 5678
+
+ARG SERVICE=main
+ENV SERVICE=${SERVICE}
+
+CMD ["sh", "-c", "if [ \"$SERVICE\" = 'document-handler' ]; then uvicorn src.cloud_runs.document_handler.main:app --host 0.0.0.0 --port 8080; else python main.py; fi"]

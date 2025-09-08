@@ -1,0 +1,14 @@
+{
+  "debug.onTaskErrors": "abort",
+  "json.schemas": [
+    {
+      "fileMatch": ["/aad.*.json"],
+      "schema": {}
+    }
+  ],
+  "sonarlint.connectedMode.project": {
+    "connectionId": "https-sonarqube-infodation-com",
+    "projectKey": "infodation_ifd-cpb-python-ai_a72a641c-5c37-4147-a253-be4621209bc3"
+  },
+  "python-envs.pythonProjects": []
+}

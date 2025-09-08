@@ -1,0 +1,20 @@
+run:
+    generations: 1 # Test each prompt once
+reporting:
+    report_dir: "/app/reports"
+    report_prefix: "chatbot-security-test"
+plugins:
+  generators:
+    rest:
+      RestGenerator:
+        uri: "https://ifd-cpb-python-ai-duy-work-service-1046428081626.asia-southeast1.run.app/chat/completions"
+        method: "post"
+        req_template_json_object:
+          messages:
+            - role: "user"
+              content: "$INPUT"
+        response_json: true
+        response_json_field: "$.choices[0].message.content"
+        headers:
+          Content-Type: "application/json"
+        request_timeout: 60  # Increased timeout to 60 seconds

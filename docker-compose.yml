@@ -1,0 +1,35 @@
+services:
+  main-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.debug
+      args:
+        SERVICE: main
+    environment:
+      - SERVICE=main
+    env_file:
+      - .env.local
+    ports:
+      - "5000:5000"
+
+  document-handler:
+    build:
+      context: .
+      dockerfile: Dockerfile.debug
+      args:
+        SERVICE: document-handler
+    environment:
+      - SERVICE=document-handler
+    env_file:
+      - .env.local
+    ports:
+      - "8080:8080"
+
+  # Docling document conversion API
+  docling-serve:
+    image: ghcr.io/docling-project/docling-serve-cpu:main
+    environment:
+      - DOCLING_SERVE_ENABLE_UI=true
+      - UVICORN_PORT=8000
+    ports:
+      - "8000:8000"

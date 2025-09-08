@@ -1,0 +1,131 @@
+[
+  {
+    "type": "action",
+    "name": "show_document",
+    "description": "Show a card so user can interactively view one or multiple confluence pages or documents from selected knowledge base collections/sources. Use this when the user wants to view a known document.",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  {
+    "type": "action",
+    "name": "remove_document",
+    "description": "Show a card so user can interactively view one or multiple confluence pages or documents from selected knowledge base collections/sources. Use this when the user wants to view a known document.",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  {
+    "type": "action",
+    "name": "add_document",
+    "description": "Show a card so user can interactively add new confluence pages or document files to the knowledge base.",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  {
+    "type": "action",
+    "name": "data_sources",
+    "description": "Show a card so user can interactively select the data collections/infomation sources used for knowledge base searches and query .",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  {
+    "type": "action",
+    "name": "rag_query",
+    "description": "Searches the company's knowledge base/internal information/data sources to get relevant context for a user's question/task.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "The question or query to ask rag_query to retrieve info from knowledge base/internal data. Keep user question language. Don't truncate user instruction."
+        },
+        "language": {
+          "type": "string",
+          "description": "The language of the query. If not provided, it defaults to 'en'."
+        }
+      },
+      "required": ["query", "language"]
+    }
+  },
+  {
+    "type": "action",
+    "name": "n8n_mcp",
+    "description": "Execute workflows through N8N with MCP integration. The query must always preserve the original user language (do not translate). Provides access to Jira (tickets, issues) and Confluence (pages, documentation) for project and documentation management.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "User request or task to be processed by the N8N workflow. Keep the query exactly in the original language entered by the user."
+        }
+      },
+      "required": ["query"]
+    }
+  },
+  {
+    "type": "action",
+    "name": "web_search",
+    "description": "Use this action for any user question that requires up-to-date, real-world, or external information that is not available in the internal knowledge base.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "The query to search the web"
+        }
+      },
+      "required": ["query"]
+    }
+  },
+  {
+    "type": "action",
+    "name": "toggle_web_search",
+    "description": "Use this action only when the user explicitly asks to enable or disable the web search feature. Do not use for answering information queries.",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  {
+    "type": "action",
+    "name": "create_collection_request",
+    "description": "Show a card so user can interactively initiate the process to creat or add a new collection/data sources to the knowledge base.",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  {
+    "type": "action",
+    "name": "get_supported_commands",
+    "description": "Return a adaptive card showing supported bot commands to user.",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  {
+    "type": "action",
+    "name": "clear_history",
+    "description": "Clear/delete chat/conversation history when user requests to clear conversation history or context.",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  }
+]

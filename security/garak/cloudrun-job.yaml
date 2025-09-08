@@ -1,0 +1,54 @@
+apiVersion: run.googleapis.com/v1
+kind: Job
+metadata:
+  name: garak-security-scan
+  annotations:
+    run.googleapis.com/launch-stage: BETA
+spec:
+  template:
+    metadata:
+      annotations:
+        run.googleapis.com/execution-environment: gen2
+    spec:
+      parallelism: 1
+      taskCount: 1
+      template:
+        spec:
+          maxRetries: 0
+          timeoutSeconds: 3600  # 1 hour timeout
+          containers:
+          - name: garak-scanner
+            image: asia-southeast1-docker.pkg.dev/infrateam-playground/ifd-copilot/garak-security-scanner:latest
+            resources:
+              limits:
+                cpu: "2"
+                memory: "4Gi"
+              requests:
+                cpu: "1"
+                memory: "2Gi"
+            env:
+            # Default configuration - override as needed
+            - name: MODEL_TYPE
+              value: "rest"
+            - name: MODEL_NAME
+              value: "RestGenerator"
+            - name: CONFIG_FILE
+              value: "ifd_bot_config.yaml"
+            - name: PROBES
+              value: "lmrc"
+            - name: REPORT_PREFIX
+              value: "chatbot-security"
+            - name: VERBOSE_LEVEL
+              value: "-vv"
+            # Optional: Cloud Storage integration
+            # - name: REPORTS_BUCKET
+            #   value: "your-reports-bucket"
+            # Optional: Pub/Sub progress monitoring
+            # - name: PUBSUB_TOPIC
+            #   value: "projects/PROJECT_ID/topics/garak-progress"
+            volumeMounts:
+            - name: reports-volume
+              mountPath: /app/reports
+          volumes:
+          - name: reports-volume
+            emptyDir: {}
